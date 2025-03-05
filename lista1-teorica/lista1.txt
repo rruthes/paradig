@@ -1,0 +1,17 @@
+EX2- A especificação de uma linguagem de programação define a sintaxe e o comportamento esperado da determinada linguagem, servindo como um guia para
+os usuários. Ela pode ser documentada de diversas maneiras, como em documentações oficiais e definições da semântica. Basicamente, é um manual de 
+instruções sobre como cada elemento da linguagem especificada funciona e se comporta diante determinados usos. Por outro lado, a implementação da
+linguagem é a concretização da especificação. Isso é feito a partir da criação de um compilador ou interpretador que permita a execução de programas
+escritos na determinada linguagem.
+
+EX4- Ter um conhecimento amplo sobre diferentes linguagens de computação pode ser extremamente benéfico na hora de criar uma solução e também na 
+hora de escrever o código para a mesma. Tendo conhecimento sobre as linguagens de programação, é possível escolher qual a melhor linguagem para
+usar dado o problema a ser resolvido, fazendo com que o desenvolvedor de software escolha a linguagem mais eficiente e funcional para a solução
+desejada. Na hora de codificar a solução, o conhecimento da linguagem escolhida também é fundamental, dado que permite a escolha de melhores estruturas
+e abordagens para o código, tornando-o limpo e otimizado.
+
+EX6- A Arquitetura de Computadores impacta o projeto de linguagens de programação porque define como o hardware executa instruções, gerencia a 
+memória e processa dados. Arquiteturas RISC, por exemplo, influenciam a otimização de registradores, enquanto arquiteturas baseadas em pilha afetam
+a execução de linguagens interpretadas, como Java. Além disso, a hierarquia de memória e instruções específicas do hardware, como operações 
+vetoriais, influenciam o desempenho de diferentes paradigmas, como a programação funcional e paralela. Para entender melhor essa relação, livros 
+como Computer Organization and Design (Patterson & Hennessy) e Modern Operating Systems (Tanenbaum) são boas referências.
