@@ -1,0 +1,59 @@
+--- LISTA 1 TEÓRICA ---
+
+EX1- 
+sintática != semântica: sintática é a forma como foi escrito, e semântica o significado de cada um dos elementos.
+interpretadores e compiladores: interpretadores executam o código-fonte diretamente, linha por linha, traduzindo e executando ao mesmo 
+tempo. Já os compiladores traduzem o código-fonte inteiro para código de máquina antes da execução.
+pontos importantes em uma linguagem de programação: legibilidade, simplicidade, sintaxe limpa, objetividade e confiabilidade.
+
+EX2- A especificação de uma linguagem de programação define a sintaxe e o comportamento esperado da determinada linguagem, servindo como um guia para
+os usuários. Ela pode ser documentada de diversas maneiras, como em documentações oficiais e definições da semântica. Basicamente, é um manual de 
+instruções sobre como cada elemento da linguagem especificada funciona e se comporta diante determinados usos. Por outro lado, a implementação da
+linguagem é a concretização da especificação. Isso é feito a partir da criação de um compilador ou interpretador que permita a execução de programas
+escritos na determinada linguagem.
+
+EX4- Ter um conhecimento amplo sobre diferentes linguagens de computação pode ser extremamente benéfico na hora de criar uma solução e também na 
+hora de escrever o código para a mesma. Tendo conhecimento sobre as linguagens de programação, é possível escolher qual a melhor linguagem para
+usar dado o problema a ser resolvido, fazendo com que o desenvolvedor de software escolha a linguagem mais eficiente e funcional para a solução
+desejada. Na hora de codificar a solução, o conhecimento da linguagem escolhida também é fundamental, dado que permite a escolha de melhores estruturas
+e abordagens para o código, tornando-o limpo e otimizado.
+
+EX6- A Arquitetura de Computadores impacta o projeto de linguagens de programação porque define como o hardware executa instruções, gerencia a 
+memória e processa dados. Arquiteturas RISC, por exemplo, influenciam a otimização de registradores, enquanto arquiteturas baseadas em pilha afetam
+a execução de linguagens interpretadas, como Java. Além disso, a hierarquia de memória e instruções específicas do hardware, como operações 
+vetoriais, influenciam o desempenho de diferentes paradigmas, como a programação funcional e paralela. Para entender melhor essa relação, livros 
+como Computer Organization and Design (Patterson & Hennessy) e Modern Operating Systems (Tanenbaum) são boas referências.
+
+--- LISTA 2 TEÓRICA ---
+EX1- 
+aumento da capacidade de expressar ideias - compreender os conceitos amplia o repertório do programador, permitindo transformar ideias em soluções de forma mais clara e eficiente, 
+independente da linguagem.
+embasamento para escolher linguagens adequadas - conhecendo os paradigmas e características das linguagens, fica mais fácil selecionar a melhor ferramenta para cada contexto ou projeto.
+aumento da habilidade de aprender novas linguagens - com uma base sólida em conceitos, novas linguagens são aprendidas com mais rapidez, já que os princípios fundamentais se repetem.
+
+EX4-
+Na compilação, o código-fonte é traduzido integralmente para a linguagem de máquina antes da execução. Na interpretação, o código-fonte é lido e executado linha por linha diretamente por um interpretador. 
+Não há geração de arquivo executável, e a execução ocorre em tempo real. Por fim, a interpretação  híbrida combina elementos de compilação e interpretação. O código-fonte é primeiro transformado
+em um código intermediário e depois esse código é interpretado ou executado por uma máquina virtual.
+
+EX5- 
+montador: programa que transforma código em linguagem de montagem (assembly) para código de máquina executável.
+tradutor: termo genérico para programas que traduzem código de uma linguagem qualquer para outra qualquer.
+cross-compiler: compilador que gera código executável para uma plataforma diferente da plataforma onde o compilador está rodando.
+just-in-time: o código intermediário é compilado para código de máquina apenas no momento de execução (por isso o nome just-in-time).
+
+EX6 -
+O texto explora os diferentes paradigmas de programação, destacando como cada um organiza e resolve problemas de formas distintas. Paradigmas como o imperativo, lógico, funcional, orientado a objetos e orientado 
+a eventos oferecem maneiras variadas de estruturar programas, e em algumas linguagens é possível combinar mais de um paradigma, o que pode resultar em soluções mais eficientes. Estudar múltiplos paradigmas é 
+importante para o desenvolvimento intelectual dos programadores, pois oferece maior flexibilidade na hora de resolver problemas, escolher a linguagem mais apropriada e criar soluções mais robustas e abstratas. 
+Além disso, a diversidade de linguagens e paradigmas permite aprender novas linguagens com mais facilidade.
+Ao avaliar linguagens de programação, a legibilidade é um dos aspectos mais relevantes. Isso se refere à facilidade com que um código pode ser lido e compreendido. Linguagens mais simples facilitam o aprendizado, 
+enquanto a ortogonalidade, que indica a independência dos recursos da linguagem, torna mais fácil aprender e aplicar novos recursos sem sobrecarregar o programador com informações conflitantes. Outro critério 
+importante é a confiabilidade, que se refere à capacidade da linguagem e do código de gerar resultados consistentes e livres de erros. Isso é especialmente importante em sistemas que exigem alta precisão e 
+estabilidade, como as aplicações comerciais e científicas. No fim das contas, tanto a ortogonalidade quanto a confiabilidade são essenciais para criar programas mais eficientes e que sejam fáceis de manter.
+
+--- EXC QUE NÃO CONSTA NA LISTA ---
+O processo de compilação envolve a tradução de código fonte de uma linguagem de alto nível para linguagem de máquina, o que é feito por um compilador. A principal diferença entre interpretação e compilação é que, enquanto o interpretador executa o 
+código linha por linha, o compilador traduz o código inteiro de uma vez, gerando um arquivo executável mais rápido. Ferramentas ajudam na construção de compiladores, automatizando partes do processo, como a análise 
+léxica, que divide o código em tokens, e a análise sintática, que verifica a estrutura do código. A análise semântica garante que o código seja logicamente correto, e a otimização de código melhora o desempenho do 
+programa gerado. Por fim, o compilador gera uma tabela de símbolos que armazena informações sobre variáveis e funções, sendo essencial para o gerenciamento de tipos e escopos durante a execução do programa.
