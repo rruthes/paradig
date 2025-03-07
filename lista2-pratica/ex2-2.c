@@ -3,7 +3,7 @@
 
 // EXERCICIO 2 W3C SCHOOLS
 
-int longestUniqueSubstring(char *str) {
+int maiorSubstringUnica(char *str) {
     int n = strlen(str);
     int maxLength = 0;
     int start = 0;
@@ -26,7 +26,7 @@ int longestUniqueSubstring(char *str) {
 
 int main() {
     char str[] = "xyzxyzyy";
-    printf("Original String: %s\n", str);
-    printf("Length of the longest substring without repeating characters: %d\n", longestUniqueSubstring(str));
+    printf("string original: %s\n", str);
+    printf("comprimento da maior substring sem crateres repetidos: %d\n", maiorSubstringUnica(str));
     return 0;
 }

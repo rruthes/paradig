@@ -1,76 +1,71 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_PROJECTS 100
+#define MAX_PROJETOS 100
 
-// Define a structure to represent a project
 typedef struct {
-    char name[50];
+    char nome[50];
     char area[20];
-    float total_value;
-    char start_date[11];
-    int duration_months;
-} Project;
+    float valor_total;
+    char data_inicio[11];
+    int duracao_meses;
+} Projeto;
 
-// Function to register a new project
-void register_project(Project projects[], int *count) {
-    if (*count >= MAX_PROJECTS) {
-        printf("Maximum number of projects reached.\n");
+void cadastrar_projeto(Projeto projetos[], int *contagem) {
+    if (*contagem >= MAX_PROJETOS) {
+        printf("número máximo de projetos atingido.\n");
         return;
     }
 
-    // Input project details from the user
-    printf("Enter project name: ");
-    scanf(" %[^\n]", projects[*count].name);
-    printf("Enter project area (marketing, operational, innovation): ");
-    scanf(" %[^\n]", projects[*count].area);
-    printf("Enter total value: ");
-    scanf("%f", &projects[*count].total_value);
-    printf("Enter start date (YYYY-MM-DD): ");
-    scanf(" %[^\n]", projects[*count].start_date);
-    printf("Enter duration in months: ");
-    scanf("%d", &projects[*count].duration_months);
+    printf("digite o nome do projeto: ");
+    scanf(" %[^\n]", projetos[*contagem].nome);
+    printf("digite a área do projeto (marketing, operacional, inovação): ");
+    scanf(" %[^\n]", projetos[*contagem].area);
+    printf("digite o valor total: ");
+    scanf("%f", &projetos[*contagem].valor_total);
+    printf("digite a data de início (AAAA-MM-DD): ");
+    scanf(" %[^\n]", projetos[*contagem].data_inicio);
+    printf("digite a duração em meses: ");
+    scanf("%d", &projetos[*contagem].duracao_meses);
 
-    (*count)++;
+    (*contagem)++;
 }
 
-// Function to consult and display all registered projects
-void consult_projects(Project projects[], int count) {
-    for (int i = 0; i < count; i++) {
-        printf("Project %d:\n", i + 1);
-        printf("Name: %s\n", projects[i].name);
-        printf("Area: %s\n", projects[i].area);
-        printf("Total Value: %.2f\n", projects[i].total_value);
-        printf("Start Date: %s\n", projects[i].start_date);
-        printf("Duration: %d months\n", projects[i].duration_months);
+void consultar_projetos(Projeto projetos[], int contagem) {
+    for (int i = 0; i < contagem; i++) {
+        printf("projeto %d:\n", i + 1);
+        printf("nome: %s\n", projetos[i].nome);
+        printf("área: %s\n", projetos[i].area);
+        printf("valor total: %.2f\n", projetos[i].valor_total);
+        printf("data de início: %s\n", projetos[i].data_inicio);
+        printf("duração: %d meses\n", projetos[i].duracao_meses);
         printf("\n");
     }
 }
 
 int main() {
-    Project projects[MAX_PROJECTS];
-    int count = 0;
-    int choice;
+    Projeto projetos[MAX_PROJETOS];
+    int contagem = 0;
+    int escolha;
 
-    // Main loop to display menu and handle user choices
     while (1) {
-        printf("1. Register Project\n");
-        printf("2. Consult Projects\n");
-        printf("3. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+        printf("1. cadastrar projeto\n");
+        printf("2. consultar projetos\n");
+        printf("3. sair\n");
+        printf("digite sua escolha: ");
+        scanf("%d", &escolha);
 
-        switch (choice) {
+        switch (escolha) {
             case 1:
-                register_project(projects, &count);
+                cadastrar_projeto(projetos, &contagem);
                 break;
             case 2:
-                consult_projects(projects, count);
+                consultar_projetos(projetos, contagem);
                 break;
             case 3:
                 return 0;
             default:
-                printf("Invalid choice. Please try again.\n");
+                printf("escolha inválida. tente novamente.\n");
         }
     }
 

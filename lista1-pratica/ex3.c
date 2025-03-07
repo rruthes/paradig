@@ -1,9 +1,7 @@
 #include <stdio.h>
-
 #define SIZE 10
 
-// Function to sort an array in descending order
-void sortDescending(int arr[], int n) {
+void ordenarDecrescente(int arr[], int n) {
     int temp;
     for (int i = 0; i < n-1; i++) {
         for (int j = i+1; j < n; j++) {
@@ -17,22 +15,19 @@ void sortDescending(int arr[], int n) {
 }
 
 int main() {
-    int values[SIZE];
+    int valores[SIZE];
 
-    // Input 10 values from the user
-    printf("Enter 10 values:\n");
+    printf("digite 10 valores:\n");
     for (int i = 0; i < SIZE; i++) {
-        printf("Value %d: ", i + 1);
-        scanf("%d", &values[i]);
+        printf("valor %d: ", i + 1);
+        scanf("%d", &valores[i]);
     }
 
-    // Sort the values in descending order
-    sortDescending(values, SIZE);
+    ordenarDecrescente(valores, SIZE);
 
-    // Print the sorted values
-    printf("Values in descending order:\n");
+    printf("valores em ordem decrescente:\n");
     for (int i = 0; i < SIZE; i++) {
-        printf("%d ", values[i]);
+        printf("%d ", valores[i]);
     }
     printf("\n");
 
