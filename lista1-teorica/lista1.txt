@@ -1,3 +1,9 @@
+EX1- 
+sintática != semântica: sintática é a forma como foi escrito, e semântica o significado de cada um dos elementos.
+interpretadores e compiladores: interpretadores executam o código-fonte diretamente, linha por linha, traduzindo e executando ao mesmo 
+tempo. Já os compiladores traduzem o código-fonte inteiro para código de máquina antes da execução.
+pontos importantes em uma linguagem de programação: legibilidade, simplicidade, sintaxe limpa, objetividade e confiabilidade.
+
 EX2- A especificação de uma linguagem de programação define a sintaxe e o comportamento esperado da determinada linguagem, servindo como um guia para
 os usuários. Ela pode ser documentada de diversas maneiras, como em documentações oficiais e definições da semântica. Basicamente, é um manual de 
 instruções sobre como cada elemento da linguagem especificada funciona e se comporta diante determinados usos. Por outro lado, a implementação da
