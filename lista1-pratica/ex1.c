@@ -2,7 +2,6 @@
 // =========================
 #include <stdio.h>
 
-// Function prototypes
 int findConta(int *conta, int cc[1000], int n);
 void openConta(int conta, float *saldo, int cc[1000], int *n);
 void fazerDeposito(float saldo[1000], int i);
@@ -15,13 +14,11 @@ int main(void) {
     int cc[1000], n = 0, i, op, conta;
     float saldo[1000], valor;
 
-    // Initialize account numbers and balances
     for (i = 0; i < 1000; i++) {
         cc[i] = 0;
         saldo[i] = 0;
     }
 
-    // Main loop to display menu and handle user choices
     do {
         menu(&op);
         if (op == 1) {
@@ -64,7 +61,6 @@ int main(void) {
     return 0;
 }
 
-// Function to display the menu and get user choice
 void menu(int *p) {
     printf("1) Abrir conta\n");
     printf("2) Verificar saldo\n");
@@ -75,7 +71,6 @@ void menu(int *p) {
     scanf("%d", p);
 }
 
-// Function to find an account by its number
 int findConta(int *conta, int cc[1000], int n) {
     int j;
     printf("numero da conta: ");
@@ -84,7 +79,6 @@ int findConta(int *conta, int cc[1000], int n) {
     return j;
 }
 
-// Function to open a new account
 void openConta(int conta, float *saldo, int cc[1000], int *n) {
     float valor;
     printf("valor do deposito inicial: ");
@@ -95,7 +89,6 @@ void openConta(int conta, float *saldo, int cc[1000], int *n) {
     printf("operacao realizada com sucesso\n");
 }
 
-// Function to make a deposit
 void fazerDeposito(float saldo[1000], int i) {
     float valor;
     printf("valor do deposito: ");
@@ -104,7 +97,6 @@ void fazerDeposito(float saldo[1000], int i) {
     printf("operacao realizada com sucesso\n");
 }
 
-// Function to make a withdrawal
 void fazerSaque(float saldo[1000], int i) {
     float valor;
     printf("valor do saque: ");
@@ -117,7 +109,6 @@ void fazerSaque(float saldo[1000], int i) {
     }
 }
 
-// Function to make a PIX transfer
 void fazerPix(float saldo[1000], int i) {
     float valor;
     printf("valor do PIX: ");
@@ -130,7 +121,6 @@ void fazerPix(float saldo[1000], int i) {
     }
 }
 
-// Function to input a positive value
 float tomaValor(void) {
     float valor;
     scanf("%f", &valor);

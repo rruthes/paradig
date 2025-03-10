@@ -1,0 +1,26 @@
+EX1- 
+aumento da capacidade de expressar ideias - compreender os conceitos amplia o repertório do programador, permitindo transformar ideias em soluções de forma mais clara e eficiente, 
+independente da linguagem.
+embasamento para escolher linguagens adequadas - conhecendo os paradigmas e características das linguagens, fica mais fácil selecionar a melhor ferramenta para cada contexto ou projeto.
+aumento da habilidade de aprender novas linguagens - com uma base sólida em conceitos, novas linguagens são aprendidas com mais rapidez, já que os princípios fundamentais se repetem.
+
+EX4-
+Na compilação, o código-fonte é traduzido integralmente para a linguagem de máquina antes da execução. Na interpretação, o código-fonte é lido e executado linha por linha diretamente por um interpretador. 
+Não há geração de arquivo executável, e a execução ocorre em tempo real. Por fim, a interpretação  híbrida combina elementos de compilação e interpretação. O código-fonte é primeiro transformado
+em um código intermediário e depois esse código é interpretado ou executado por uma máquina virtual.
+
+EX5- 
+montador: programa que transforma código em linguagem de montagem (assembly) para código de máquina executável.
+tradutor: termo genérico para programas que traduzem código de uma linguagem qualquer para outra qualquer.
+cross-compiler: compilador que gera código executável para uma plataforma diferente da plataforma onde o compilador está rodando.
+just-in-time: o código intermediário é compilado para código de máquina apenas no momento de execução (por isso o nome just-in-time).
+
+EX6 -
+O texto explora os diferentes paradigmas de programação, destacando como cada um organiza e resolve problemas de formas distintas. Paradigmas como o imperativo, lógico, funcional, orientado a objetos e orientado 
+a eventos oferecem maneiras variadas de estruturar programas, e em algumas linguagens é possível combinar mais de um paradigma, o que pode resultar em soluções mais eficientes. Estudar múltiplos paradigmas é 
+importante para o desenvolvimento intelectual dos programadores, pois oferece maior flexibilidade na hora de resolver problemas, escolher a linguagem mais apropriada e criar soluções mais robustas e abstratas. 
+Além disso, a diversidade de linguagens e paradigmas permite aprender novas linguagens com mais facilidade.
+Ao avaliar linguagens de programação, a legibilidade é um dos aspectos mais relevantes. Isso se refere à facilidade com que um código pode ser lido e compreendido. Linguagens mais simples facilitam o aprendizado, 
+enquanto a ortogonalidade, que indica a independência dos recursos da linguagem, torna mais fácil aprender e aplicar novos recursos sem sobrecarregar o programador com informações conflitantes. Outro critério 
+importante é a confiabilidade, que se refere à capacidade da linguagem e do código de gerar resultados consistentes e livres de erros. Isso é especialmente importante em sistemas que exigem alta precisão e 
+estabilidade, como as aplicações comerciais e científicas. No fim das contas, tanto a ortogonalidade quanto a confiabilidade são essenciais para criar programas mais eficientes e que sejam fáceis de manter.

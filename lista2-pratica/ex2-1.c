@@ -1,31 +1,31 @@
 #include <stdio.h>
 // EXERCÍCIO 1 W3C SCHOOLS
 
-void findIndices(int arr[], int size, int target) {
-    for (int i = 0; i < size; i++) {
-        for (int j = i + 1; j < size; j++) {
-            if (arr[i] + arr[j] == target) {
-                printf("Indices of the two numbers whose sum equals to target value: %d\n", target);
+void findIndices(int arr[], int tamanho, int valorDesejado) {
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = i + 1; j < tamanho; j++) {
+            if (arr[i] + arr[j] == valorDesejado) {
+                printf("dois numeros cuja soma se iguala ao valor desejado: %d\n", valorDesejado);
                 printf("%d %d\n", i, j);
                 return;
             }
         }
     }
-    printf("No two numbers found whose sum equals to target value: %d\n", target);
+    printf("par de números cuja soma seja igual ao valor desejado não foi encontrado: %d\n", valorDesejado);
 }
 
 int main() {
     int arr[] = {4, 2, 1, 5};
-    int target = 7;
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int valorDesejado = 7;
+    int tamanho = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Original Array: ");
-    for (int i = 0; i < size; i++) {
+    printf("array original: ");
+    for (int i = 0; i < tamanho; i++) {
         printf("%d ", arr[i]);
     }
-    printf("\nTarget Value: %d\n", target);
+    printf("\nvalor desejado: %d\n", valorDesejado);
 
-    findIndices(arr, size, target);
+    findIndices(arr, tamanho, valorDesejado);
 
     return 0;
 }

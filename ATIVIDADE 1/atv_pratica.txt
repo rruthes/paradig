@@ -1,0 +1,562 @@
+--- LISTA PRATICA 1 --- 
+EX1-
+// === La Banque Clément====
+// =========================
+#include <stdio.h>
+
+int findConta(int *conta, int cc[1000], int n);
+void openConta(int conta, float *saldo, int cc[1000], int *n);
+void fazerDeposito(float saldo[1000], int i);
+void fazerSaque(float saldo[1000], int i);
+void fazerPix(float saldo[1000], int i);
+float tomaValor(void);
+void menu(int *p);
+
+int main(void) {
+    int cc[1000], n = 0, i, op, conta;
+    float saldo[1000], valor;
+
+    for (i = 0; i < 1000; i++) {
+        cc[i] = 0;
+        saldo[i] = 0;
+    }
+
+    do {
+        menu(&op);
+        if (op == 1) {
+            i = findConta(&conta, cc, n);
+            if (i != n) 
+                printf("esta conta-corrente ja existe\n");
+            else 
+                openConta(conta, saldo, cc, &n);
+        }
+        if (op == 2) {
+            i = findConta(&conta, cc, n);
+            if (i == n) 
+                printf("numero de conta-corrente invalido\n");
+            else 
+                printf("saldo: %.2f\n", saldo[i]);
+        }
+        if (op == 3) {
+            i = findConta(&conta, cc, n);
+            if (i == n) 
+                printf("numero de conta-corrente invalido\n");
+            else 
+                fazerDeposito(saldo, i);
+        }
+        if (op == 4) {
+            i = findConta(&conta, cc, n);
+            if (i == n)
+                printf("numero de conta-corrente invalido\n");
+            else
+                fazerSaque(saldo, i);
+        }
+        if (op == 5) {
+            i = findConta(&conta, cc, n);
+            if (i == n)
+                printf("numero de conta-corrente invalido\n");
+            else
+                fazerPix(saldo, i);
+        }
+    } while (op != 6);
+
+    return 0;
+}
+
+void menu(int *p) {
+    printf("1) Abrir conta\n");
+    printf("2) Verificar saldo\n");
+    printf("3) Fazer Deposito\n");
+    printf("4) Fazer Saque\n");
+    printf("5) Fazer PIX\n");
+    printf("6) Sair do sistema\n");
+    scanf("%d", p);
+}
+
+int findConta(int *conta, int cc[1000], int n) {
+    int j;
+    printf("numero da conta: ");
+    scanf("%d", conta);
+    for (j = 0; j < n && *conta != cc[j]; j++);
+    return j;
+}
+
+void openConta(int conta, float *saldo, int cc[1000], int *n) {
+    float valor;
+    printf("valor do deposito inicial: ");
+    valor = tomaValor();
+    cc[*n] = conta;
+    saldo[*n] = valor;
+    (*n)++;
+    printf("operacao realizada com sucesso\n");
+}
+
+void fazerDeposito(float saldo[1000], int i) {
+    float valor;
+    printf("valor do deposito: ");
+    valor = tomaValor();
+    saldo[i] = saldo[i] + valor;
+    printf("operacao realizada com sucesso\n");
+}
+
+void fazerSaque(float saldo[1000], int i) {
+    float valor;
+    printf("valor do saque: ");
+    valor = tomaValor();
+    if (valor > saldo[i]) {
+        printf("saldo insuficiente\n");
+    } else {
+        saldo[i] = saldo[i] - valor;
+        printf("operacao realizada com sucesso\n");
+    }
+}
+
+void fazerPix(float saldo[1000], int i) {
+    float valor;
+    printf("valor do PIX: ");
+    valor = tomaValor();
+    if (valor > saldo[i]) {
+        printf("saldo insuficiente\n");
+    } else {
+        saldo[i] = saldo[i] - valor;
+        printf("PIX realizado com sucesso\n");
+    }
+}
+
+float tomaValor(void) {
+    float valor;
+    scanf("%f", &valor);
+    while (valor <= 0) {
+        printf("o valor deve ser positivo.\n");
+        printf("valor: ");
+        scanf("%f", &valor);
+    }
+    return valor;
+}
+
+EX2- 
+#include <stdio.h>
+
+#define SIZE 3
+
+void entradaMatriz(int matrix[SIZE][SIZE], char name) {
+    printf("digite os valores para a matriz %c:\n", name);
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            printf("%c[%d][%d]: ", name, i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+}
+
+void imprimeMatriz(int matrix[SIZE][SIZE], char name) {
+    printf("matriz %c:\n", name);
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void multiplicaMatrizes(int A[SIZE][SIZE], int B[SIZE][SIZE], int C[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            C[i][j] = 0;
+            for (int k = 0; k < SIZE; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}
+
+void subtraiMatrizes(int A[SIZE][SIZE], int B[SIZE][SIZE], int C[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            C[i][j] = A[i][j] - B[i][j];
+        }
+    }
+}
+
+void adicionaMatrizes(int A[SIZE][SIZE], int B[SIZE][SIZE], int C[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+void transpoeMatriz(int matrix[SIZE][SIZE], int transposed[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            transposed[j][i] = matrix[i][j];
+        }
+    }
+}
+
+int main() {
+    int A[SIZE][SIZE], B[SIZE][SIZE], C[SIZE][SIZE], T[SIZE][SIZE];
+    int choice;
+
+    entradaMatriz(A, 'A');
+    entradaMatriz(B, 'B');
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. C = A * B\n");
+        printf("2. C = A - B\n");
+        printf("3. C = A + B\n");
+        printf("4. Transposta de C (onde C = A * B)\n");
+        printf("5. Sair\n");
+        printf("Digite sua escolha: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                multiplicaMatrizes(A, B, C);
+                imprimeMatriz(C, 'C');
+                break;
+            case 2:
+                subtraiMatrizes(A, B, C);
+                imprimeMatriz(C, 'C');
+                break;
+            case 3:
+                adicionaMatrizes(A, B, C);
+                imprimeMatriz(C, 'C');
+                break;
+            case 4:
+                multiplicaMatrizes(A, B, C);
+                transpoeMatriz(C, T);
+                imprimeMatriz(T, 'T');
+                break;
+            case 5:
+                printf("saindo do programa.\n");
+                break;
+            default:
+                printf("escolha inválida. Por favor, tente novamente.\n");
+        }
+    } while (choice != 5);
+
+    return 0;
+}
+
+EX- 3
+#include <stdio.h>
+#define SIZE 10
+
+void ordenarDecrescente(int arr[], int n) {
+    int temp;
+    for (int i = 0; i < n-1; i++) {
+        for (int j = i+1; j < n; j++) {
+            if (arr[i] < arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int valores[SIZE];
+
+    printf("digite 10 valores:\n");
+    for (int i = 0; i < SIZE; i++) {
+        printf("valor %d: ", i + 1);
+        scanf("%d", &valores[i]);
+    }
+
+    ordenarDecrescente(valores, SIZE);
+
+    printf("valores em ordem decrescente:\n");
+    for (int i = 0; i < SIZE; i++) {
+        printf("%d ", valores[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+EX- 4
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_PROJETOS 100
+
+typedef struct {
+    char nome[50];
+    char area[20];
+    float valor_total;
+    char data_inicio[11];
+    int duracao_meses;
+} Projeto;
+
+void cadastrar_projeto(Projeto projetos[], int *contagem) {
+    if (*contagem >= MAX_PROJETOS) {
+        printf("número máximo de projetos atingido.\n");
+        return;
+    }
+
+    printf("digite o nome do projeto: ");
+    scanf(" %[^\n]", projetos[*contagem].nome);
+    printf("digite a área do projeto (marketing, operacional, inovação): ");
+    scanf(" %[^\n]", projetos[*contagem].area);
+    printf("digite o valor total: ");
+    scanf("%f", &projetos[*contagem].valor_total);
+    printf("digite a data de início (AAAA-MM-DD): ");
+    scanf(" %[^\n]", projetos[*contagem].data_inicio);
+    printf("digite a duração em meses: ");
+    scanf("%d", &projetos[*contagem].duracao_meses);
+
+    (*contagem)++;
+}
+
+void consultar_projetos(Projeto projetos[], int contagem) {
+    for (int i = 0; i < contagem; i++) {
+        printf("projeto %d:\n", i + 1);
+        printf("nome: %s\n", projetos[i].nome);
+        printf("área: %s\n", projetos[i].area);
+        printf("valor total: %.2f\n", projetos[i].valor_total);
+        printf("data de início: %s\n", projetos[i].data_inicio);
+        printf("duração: %d meses\n", projetos[i].duracao_meses);
+        printf("\n");
+    }
+}
+
+int main() {
+    Projeto projetos[MAX_PROJETOS];
+    int contagem = 0;
+    int escolha;
+
+    while (1) {
+        printf("1. cadastrar projeto\n");
+        printf("2. consultar projetos\n");
+        printf("3. sair\n");
+        printf("digite sua escolha: ");
+        scanf("%d", &escolha);
+
+        switch (escolha) {
+            case 1:
+                cadastrar_projeto(projetos, &contagem);
+                break;
+            case 2:
+                consultar_projetos(projetos, contagem);
+                break;
+            case 3:
+                return 0;
+            default:
+                printf("escolha inválida. tente novamente.\n");
+        }
+    }
+
+    return 0;
+}
+
+--- LISTA PRATICA 2 ---
+EX 1-
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ORDEM 3
+
+int main(int argc, char *argv[]) {
+    int **mat, **matrixB, **matrixC;
+    mat = (int**)malloc(ORDEM * sizeof(int*));
+    matrixB = (int**)malloc(ORDEM * sizeof(int*));
+    matrixC = (int**)malloc(ORDEM * sizeof(int*));
+    int i, j;
+    for (i = 0; i < ORDEM; i++) {
+        mat[i] = (int*)malloc(ORDEM * sizeof(int));
+        matrixB[i] = (int*)malloc(ORDEM * sizeof(int));
+        matrixC[i] = (int*)malloc(ORDEM * sizeof(int));
+    }
+    
+    for (i = 0; i < ORDEM; i++) {
+        for (j = 0; j < ORDEM; j++) {
+            mat[i][j] = i + j;
+            matrixB[i][j] = i - j;
+        }
+    }
+    
+    for (i = 0; i < ORDEM; i++) {
+        for (j = 0; j < ORDEM; j++) {
+            matrixC[i][j] = mat[i][j] + matrixB[i][j];
+        }
+    }
+    
+    for (i = 0; i < ORDEM; i++) {
+        for (j = 0; j < ORDEM; j++)
+            printf("%d\t", matrixC[i][j]);
+        printf("\n");
+    }
+    
+    for (i = 0; i < ORDEM; i++) {
+        free(mat[i]);
+        free(matrixB[i]);
+        free(matrixC[i]);
+    }
+    free(mat);
+    free(matrixB);
+    free(matrixC);
+    
+    return 0;
+}
+
+EX2.1- 
+#include <stdio.h>
+// EXERCÍCIO 1 W3C SCHOOLS
+
+void findIndices(int arr[], int tamanho, int valorDesejado) {
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = i + 1; j < tamanho; j++) {
+            if (arr[i] + arr[j] == valorDesejado) {
+                printf("dois numeros cuja soma se iguala ao valor desejado: %d\n", valorDesejado);
+                printf("%d %d\n", i, j);
+                return;
+            }
+        }
+    }
+    printf("par de números cuja soma seja igual ao valor desejado não foi encontrado: %d\n", valorDesejado);
+}
+
+int main() {
+    int arr[] = {4, 2, 1, 5};
+    int valorDesejado = 7;
+    int tamanho = sizeof(arr) / sizeof(arr[0]);
+
+    printf("array original: ");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\nvalor desejado: %d\n", valorDesejado);
+
+    findIndices(arr, tamanho, valorDesejado);
+
+    return 0;
+}
+
+EX2.2-
+#include <stdio.h>
+#include <string.h>
+
+// EXERCICIO 2 W3C SCHOOLS
+
+int maiorSubstringUnica(char *str) {
+    int n = strlen(str);
+    int maxLength = 0;
+    int start = 0;
+    int visited[256];
+
+    for (int i = 0; i < 256; i++) {
+        visited[i] = -1;
+    }
+
+    for (int end = 0; end < n; end++) {
+        if (visited[(int)str[end]] >= start) {
+            start = visited[(int)str[end]] + 1;
+        }
+        visited[(int)str[end]] = end;
+        maxLength = (end - start + 1) > maxLength ? (end - start + 1) : maxLength;
+    }
+
+    return maxLength;
+}
+
+int main() {
+    char str[] = "xyzxyzyy";
+    printf("string original: %s\n", str);
+    printf("comprimento da maior substring sem crateres repetidos: %d\n", maiorSubstringUnica(str));
+    return 0;
+}
+
+-- EXCS QUE NAO CONSTAM NAS LISTAS --
+EX1 - 
+#include <stdio.h>
+#include <stdlib.h>
+
+void escreverArquivo(const char *nomeArquivo) {
+    FILE *arquivo = fopen(nomeArquivo, "w");
+    if (arquivo == NULL) {
+        printf("erro ao abrir o arquivo para escrita.\n");
+        return;
+    }
+
+    fprintf(arquivo, "este é um exemplo\n");
+    fprintf(arquivo, "adoro programacao\n");
+
+    fclose(arquivo);
+    printf("texto escrito com sucesso.\n");
+}
+
+void lerArquivo(const char *nomeArquivo) {
+    FILE *arquivo = fopen(nomeArquivo, "r");
+    if (arquivo == NULL) {
+        printf("erro ao ler o arquivo.\n");
+        return;
+    }
+
+    char linha[256];
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        printf("%s", linha);
+    }
+
+    fclose(arquivo);
+}
+
+int main() {
+    const char *nomeArquivo = "arquivo_exemplo.txt";
+
+    escreverArquivo(nomeArquivo);
+    printf("conteúdo do arquivo:\n");
+    lerArquivo(nomeArquivo);
+
+    return 0;
+}
+
+EX 2-
+
+#include <stdio.h>
+#include <string.h>
+
+void concatenarStrings(char str1[], char str2[], char resultado[]) {
+    strcpy(resultado, str1);
+    strcat(resultado, str2);
+}
+
+int buscarSubstring(char str[], char substr[]) {
+    char *pos = strstr(str, substr);
+    if (pos != NULL) {
+        return pos - str;
+    }
+    return -1;
+}
+
+int main() {
+    char str1[100], str2[100], resultado[200];
+    char substr[100];
+    int pos;
+
+    printf("primeira string: ");
+    fgets(str1, sizeof(str1), stdin);
+    str1[strcspn(str1, "\n")] = '\0'; 
+
+    printf("segunda string: ");
+    fgets(str2, sizeof(str2), stdin);
+    str2[strcspn(str2, "\n")] = '\0';  
+
+    concatenarStrings(str1, str2, resultado);
+    printf("strings concatenadas: %s\n", resultado);
+
+    printf("substring para buscar: ");
+    fgets(substr, sizeof(substr), stdin);
+    substr[strcspn(substr, "\n")] = '\0';  
+
+    pos = buscarSubstring(resultado, substr);
+    if (pos != -1) {
+        printf("substring encontrada na posição: %d\n", pos);
+    } else {
+        printf("substring não encontrada.\n");
+    }
+
+    return 0;
+}
